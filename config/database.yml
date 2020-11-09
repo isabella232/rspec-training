@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  min_messages: warning
+
+development:
+  <<: *default
+  database: rspec_training_development
+  host: localhost
+
+test:
+  <<: *default
+  database: rspec_training_test
+  host: localhost
+
+production:
+  <<: *default
+  database: rspec_training_production
